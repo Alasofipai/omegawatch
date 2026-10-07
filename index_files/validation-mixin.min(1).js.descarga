@@ -1,0 +1,3 @@
+define(['jquery','moment','jquery/validate','mage/translate','mage/mage'],function($,moment){'use strict';return function(){$.validator.addMethod('validate-omega-date-range',function(value,element){element=$(element);let min=element.attr('date-min'),max=element.attr('date-max');if(!value){return false;}
+if(min&&max){min=moment(min).subtract(1,'days');max=moment(max).add(1,'days');value=moment(value);return value.isBetween(min,max);}
+return true;},$.mage.__("Please use the date picker to select a valid date."));}});
